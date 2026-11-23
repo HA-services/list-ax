@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_axs_lvm_layout_read,List layouts: read own and team layouts,axs.lvm.layout,base.group_user,r,"['|', ('user_id', '=', user.id), ('user_id', '=', False)]"
+access_axs_lvm_layout_own,List layouts: manage own layouts,axs.lvm.layout,base.group_user,cud,"[('user_id', '=', user.id)]"
+access_axs_lvm_layout_manager,List layouts: administrators manage all layouts,axs.lvm.layout,axs_list_view_manager.group_lvm_manager,crud,

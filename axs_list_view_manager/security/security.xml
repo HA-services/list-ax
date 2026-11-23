@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_lvm_manager" model="res.groups">
+        <field name="name">List View Manager Administrator</field>
+        <field name="comment">Can configure AXSync List View Manager, publish team default layouts and manage every saved layout.</field>
+    </record>
+
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('axs_list_view_manager.group_lvm_manager'))]"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,19 @@
+// Part of AXSync List View Manager. Dark mode adjustments.
+.o_list_renderer.axs_lvm {
+    &.axs_lvm_hover .o_data_row:not(.o_selected_row):hover > td {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        --table-bg-type: rgba(255, 255, 255, 0.08);
+        --bs-table-bg-type: rgba(255, 255, 255, 0.08);
+    }
+    td.o_data_cell .axs_lvm_copy {
+        background: #2b2f3a;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+    }
+}
+.axs_lvm_manager .axs_lvm_column_item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+.o_list_renderer .o_group_header,
+.o_list_renderer .o_group_header .o_group_name {
+    color: inherit;
+}
