@@ -1,0 +1,977 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* axs_list_view_manager
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-21 17:55+0000\n"
+"PO-Revision-Date: 2026-11-21 17:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_controller_patch.js:0
+msgid "%s rows copied. Paste them into Excel or Google Sheets."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_controller_patch.js:0
+msgid "%s rows visible on this page copied (only loaded rows can be copied)."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_renderer_patch.js:0
+msgid "(empty)"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "<span class=\"o_form_label\">Background</span>"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "<span class=\"o_form_label\">Row hover</span>"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "<span class=\"o_form_label\">Text</span>"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "<span class=\"o_form_label\">Toggles</span>"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_extra_fields
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Add Any Field as Column"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Add a field"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__extra_field_names
+msgid "Added Fields"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Administration"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "All"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+msgid "At least one column must stay visible."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_auto_refresh
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Auto Refresh"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Auto refresh"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid ""
+"Background and text color of list headers. Leave empty to keep the Odoo "
+"theme colors."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model,name:axs_list_view_manager.model_base
+msgid "Base"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_core.js:0
+msgid "Buttons"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:res.groups,comment:axs_list_view_manager.group_lvm_manager
+msgid ""
+"Can configure AXSync List View Manager, publish team default layouts and "
+"manage every saved layout."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Clear filter"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Close"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Colors"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__column_count
+msgid "Column Count"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Column Filters"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_column_filters
+msgid "Column Filters (Advanced Search)"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Column filters"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Column manager"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__columns
+msgid "Columns"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.view_axs_lvm_layout_form
+msgid "Columns (technical)"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__columns_summary
+msgid "Columns Summary"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Columns: show, hide, reorder, rename, add fields"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+#: model:ir.model.fields.selection,name:axs_list_view_manager.selection__axs_lvm_layout__density__comfortable
+msgid "Comfortable"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,help:axs_list_view_manager.field_axs_lvm_layout__extra_field_names
+msgid ""
+"Comma separated technical names of fields added to the list by the user."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+#: model:ir.model.fields.selection,name:axs_list_view_manager.selection__axs_lvm_layout__density__compact
+msgid "Compact"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model,name:axs_list_view_manager.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_renderer_patch.js:0
+msgid "Copied: %s"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_copy_cell
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Copy Cell Value"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_controller_patch.js:0
+msgid "Copy Rows"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_copy_rows
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Copy Rows to Clipboard"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid ""
+"Copy the selected rows as a table that pastes cleanly into Excel or Google "
+"Sheets."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Copy the value of any cell with one click, without opening the record."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Copy value"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "Default list"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+msgid "Default list restored."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__density
+msgid "Density"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_excluded_model_ids
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Disabled on Models"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__display_name
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_ir_http__display_name
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Drag to reorder"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Edit mode or auto refresh active"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Edit mode, auto refresh and export"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_controller_patch.js:0
+msgid "Edit mode: click a cell to edit it directly in the list."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+msgid "Every %s minutes"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+msgid "Every %s seconds"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+msgid "Every minute"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_export_view
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Export Current View"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_controller_patch.js:0
+msgid "Export Selection (Current View)"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Export current view (Excel)"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid ""
+"Export exactly what is on screen (visible columns, custom labels, filters "
+"and grouping) to Excel. Requires the export right."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Find a field…"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Forget your personal layout"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "From"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model,name:axs_list_view_manager.model_ir_http
+msgid "HTTP Routing"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_header_bg
+msgid "Header Background"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_header_color
+msgid "Header Text Color"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Hide all"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_hover_highlight
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Highlight Row on Hover"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Highlight the row under the mouse pointer for easier reading."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_hover_color
+msgid "Hover Color"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Hover and Toggle Colors"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__id
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_ir_http__id
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "Invalid column layout."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "Invalid selection."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__is_team_default
+msgid "Is Team Default"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.view_axs_lvm_layout_list
+msgid "Last Change"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.actions.act_window,help:axs_list_view_manager.action_axs_lvm_layout
+msgid ""
+"Layouts appear here as soon as users personalize a list with the Columns "
+"button."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid ""
+"Let users add fields that are not in the list view as extra read-only "
+"columns."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid ""
+"Let users reload a list automatically every 30 seconds, 1, 5 or 15 minutes."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid ""
+"Let users switch inline editing on or off on lists of records they are "
+"allowed to edit."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "List Features"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "List Header"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.view_axs_lvm_layout_form
+msgid "List Layout"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__view_id
+msgid "List View"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model,name:axs_list_view_manager.model_axs_lvm_layout
+msgid "List View Layout (AXSync List View Manager)"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "List View Manager"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:res.groups,name:axs_list_view_manager.group_lvm_manager
+msgid "List View Manager Administrator"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,help:axs_list_view_manager.field_res_config_settings__axs_lvm_excluded_model_ids
+msgid "List View Manager features are switched off on these models."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Loading fields…"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Manage Saved Layouts"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__model
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.view_axs_lvm_layout_search
+msgid "Model"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__model_id
+msgid "Model Record"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "More list options"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Move down"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Move up"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_core.js:0
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "No"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "No column matches your search."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "No other field available."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.actions.act_window,help:axs_list_view_manager.action_axs_lvm_layout
+msgid "No saved layout yet"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_core.js:0
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Not set"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+msgid "Off"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "Only List View Manager administrators can publish team layouts."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "Only List View Manager administrators can remove team layouts."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "Only internal users can personalize list views."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,help:axs_list_view_manager.field_axs_lvm_layout__user_id
+msgid ""
+"Owner of this layout. Empty means it is the team default layout for this "
+"list view."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.view_axs_lvm_layout_search
+msgid "Personal Layouts"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Personal layout active"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_edit_toggle
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Read / Edit Mode Toggle"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_controller_patch.js:0
+msgid "Read mode: clicking a row opens the record."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_refresh_button
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Reload Button"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Reload data"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Reload list data without refreshing the browser page."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Remove team default"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Remove this added field"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Rename"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Reset widths"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Restore default"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Restore original label"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Review, edit or delete the personal and team layouts saved by users."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Row density"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid ""
+"Row highlight color and the color of switches and accents in the column "
+"manager."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Saved Layouts"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.actions.act_window,name:axs_list_view_manager.action_axs_lvm_layout
+#: model:ir.ui.menu,name:axs_list_view_manager.menu_axs_lvm_layouts
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.view_axs_lvm_layout_list
+msgid "Saved List Layouts"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Search columns…"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid ""
+"Search row under the list header: text, related records, numbers, date "
+"ranges, selections and Yes/No values. Works together with Group By."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+msgid "Search…"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_serial_number
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Serial Number Column"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Set as team default"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid "Show a running row number (#) at the start of every list."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Show all"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+#: model:ir.model.fields.selection,name:axs_list_view_manager.selection__axs_lvm_layout__density__spacious
+msgid "Spacious"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Switch"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.res_config_settings_view_form_axs_lvm
+msgid ""
+"Switch List View Manager off on specific models. Their lists behave exactly "
+"like standard Odoo lists."
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.view_axs_lvm_layout_search
+msgid "Team Defaults"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.view_axs_lvm_layout_list
+msgid "Team default"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Team default layout in use"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_core.js:0
+msgid "Team default layout removed."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+msgid "Team default layout restored."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_controller_patch.js:0
+msgid "There are no rows to copy."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_controller_patch.js:0
+msgid "There is no exportable column in this list."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_core.js:0
+msgid "This layout is now the team default for this list."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "To"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_res_config_settings__axs_lvm_accent_color
+msgid "Toggle & Accent Color"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "Unknown model: %s"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Use this layout as the default for every user"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__user_id
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.view_axs_lvm_layout_search
+msgid "User"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model_terms:ir.ui.view,arch_db:axs_list_view_manager.view_axs_lvm_layout_list
+msgid "Visible Columns"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_core.js:0
+msgid "Widget"
+msgstr ""
+
+#. module: axs_list_view_manager
+#: model:ir.model.fields,field_description:axs_list_view_manager.field_axs_lvm_layout__wrap_text
+msgid "Wrap Long Text"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Wrap long text"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_core.js:0
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Yes"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "You can duplicate at most 500 records at once."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/list_controller_patch.js:0
+#: code:addons/axs_list_view_manager/static/src/js/list_renderer_patch.js:0
+msgid "Your browser blocked the clipboard."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_core.js:0
+msgid "Your list layout could not be saved."
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "Your personal layout is saved automatically"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/xml/lvm_templates.xml:0
+msgid "added"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "added field"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+msgid "e.g. >100, 10..50"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "hidden"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "label: %s"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-python
+#: code:addons/axs_list_view_manager/models/lvm_layout.py:0
+msgid "visible"
+msgstr ""
+
+#. module: axs_list_view_manager
+#. odoo-javascript
+#: code:addons/axs_list_view_manager/static/src/js/lvm_toolbar.js:0
+msgid "“%s” added. Reloading the list…"
+msgstr ""

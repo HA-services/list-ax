@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_axs_lvm_layout_list" model="ir.ui.view">
+        <field name="name">axs.lvm.layout.list</field>
+        <field name="model">axs.lvm.layout</field>
+        <field name="arch" type="xml">
+            <list string="Saved List Layouts" create="0">
+                <field name="model"/>
+                <field name="view_id"/>
+                <field name="user_id" placeholder="Team default"/>
+                <field name="is_team_default"/>
+                <field name="column_count" string="Visible Columns"/>
+                <field name="extra_field_names" optional="show"/>
+                <field name="density" optional="show"/>
+                <field name="write_date" string="Last Change" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_axs_lvm_layout_form" model="ir.ui.view">
+        <field name="name">axs.lvm.layout.form</field>
+        <field name="model">axs.lvm.layout</field>
+        <field name="arch" type="xml">
+            <form string="List Layout" create="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="model" readonly="1"/>
+                            <field name="view_id" readonly="1"/>
+                            <field name="user_id" readonly="1"/>
+                            <field name="is_team_default"/>
+                        </group>
+                        <group>
+                            <field name="density"/>
+                            <field name="wrap_text"/>
+                            <field name="extra_field_names" readonly="1"/>
+                            <field name="column_count"/>
+                        </group>
+                    </group>
+                    <group string="Columns (technical)">
+                        <field name="columns_summary" nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_axs_lvm_layout_search" model="ir.ui.view">
+        <field name="name">axs.lvm.layout.search</field>
+        <field name="model">axs.lvm.layout</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="model"/>
+                <field name="user_id"/>
+                <filter name="team" string="Team Defaults" domain="[('user_id', '=', False)]"/>
+                <filter name="personal" string="Personal Layouts" domain="[('user_id', '!=', False)]"/>
+                <group>
+                    <filter name="group_model" string="Model" context="{'group_by': 'model'}"/>
+                    <filter name="group_user" string="User" context="{'group_by': 'user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_axs_lvm_layout" model="ir.actions.act_window">
+        <field name="name">Saved List Layouts</field>
+        <field name="res_model">axs.lvm.layout</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No saved layout yet</p>
+            <p>Layouts appear here as soon as users personalize a list with the Columns button.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_axs_lvm_layouts"
+              name="Saved List Layouts"
+              parent="base.menu_users"
+              action="action_axs_lvm_layout"
+              groups="axs_list_view_manager.group_lvm_manager"
+              sequence="90"/>
+</odoo>
