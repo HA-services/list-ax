@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_axs_lvm" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.axs.list.view.manager</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="90"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="List View Manager" string="List View Manager" data-key="axs_list_view_manager" groups="axs_list_view_manager.group_lvm_manager">
+                    <h2>List Features</h2>
+                    <div class="row mt16 o_settings_container" name="axs_lvm_features">
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_serial_number">
+                            <div class="o_setting_left_pane"><field name="axs_lvm_serial_number"/></div>
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_serial_number"/>
+                                <div class="text-muted">Show a running row number (#) at the start of every list.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_hover_highlight">
+                            <div class="o_setting_left_pane"><field name="axs_lvm_hover_highlight"/></div>
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_hover_highlight"/>
+                                <div class="text-muted">Highlight the row under the mouse pointer for easier reading.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_column_filters">
+                            <div class="o_setting_left_pane"><field name="axs_lvm_column_filters"/></div>
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_column_filters"/>
+                                <div class="text-muted">Search row under the list header: text, related records, numbers, date ranges, selections and Yes/No values. Works together with Group By.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_copy_cell">
+                            <div class="o_setting_left_pane"><field name="axs_lvm_copy_cell"/></div>
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_copy_cell"/>
+                                <div class="text-muted">Copy the value of any cell with one click, without opening the record.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_edit_toggle">
+                            <div class="o_setting_left_pane"><field name="axs_lvm_edit_toggle"/></div>
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_edit_toggle"/>
+                                <div class="text-muted">Let users switch inline editing on or off on lists of records they are allowed to edit.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_refresh_button">
+                            <div class="o_setting_left_pane"><field name="axs_lvm_refresh_button"/></div>
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_refresh_button"/>
+                                <div class="text-muted">Reload list data without refreshing the browser page.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_auto_refresh">
+                            <div class="o_setting_left_pane"><field name="axs_lvm_auto_refresh"/></div>
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_auto_refresh"/>
+                                <div class="text-muted">Let users reload a list automatically every 30 seconds, 1, 5 or 15 minutes.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_export_view">
+                            <div class="o_setting_left_pane"><field name="axs_lvm_export_view"/></div>
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_export_view"/>
+                                <div class="text-muted">Export exactly what is on screen (visible columns, custom labels, filters and grouping) to Excel.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_copy_rows">
+                            <div class="o_setting_left_pane"><field name="axs_lvm_copy_rows"/></div>
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_copy_rows"/>
+                                <div class="text-muted">Copy the selected rows as a table that pastes cleanly into Excel or Google Sheets.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_extra_fields">
+                            <div class="o_setting_left_pane"><field name="axs_lvm_extra_fields"/></div>
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_extra_fields"/>
+                                <div class="text-muted">Let users add fields that are not in the list view as extra read-only columns.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Colors</h2>
+                    <div class="row mt16 o_settings_container" name="axs_lvm_colors">
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_header_colors">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">List Header</span>
+                                <div class="text-muted">Background and text color of list headers. Leave empty to keep the Odoo theme colors.</div>
+                                <div class="d-flex gap-4 mt-2 align-items-center">
+                                    <span>Background</span> <field name="axs_lvm_header_bg" widget="color" class="w-auto"/>
+                                    <span>Text</span> <field name="axs_lvm_header_color" widget="color" class="w-auto"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_other_colors">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Hover and Toggle Colors</span>
+                                <div class="text-muted">Row highlight color and the color of switches and accents in the column manager.</div>
+                                <div class="d-flex gap-4 mt-2 align-items-center">
+                                    <span>Row hover</span> <field name="axs_lvm_hover_color" widget="color" class="w-auto"/>
+                                    <span>Toggles</span> <field name="axs_lvm_accent_color" widget="color" class="w-auto"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Administration</h2>
+                    <div class="row mt16 o_settings_container" name="axs_lvm_admin">
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_excluded_models">
+                            <div class="o_setting_right_pane">
+                                <label for="axs_lvm_excluded_model_ids"/>
+                                <div class="text-muted">Switch List View Manager off on specific models. Their lists behave exactly like standard Odoo lists.</div>
+                                <field name="axs_lvm_excluded_model_ids" widget="many2many_tags" options="{'no_create': True}" class="w-100 mt-2"/>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="axs_lvm_layouts">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Saved Layouts</span>
+                                <div class="text-muted">Review, edit or delete the personal and team layouts saved by users.</div>
+                                <button name="action_axs_lvm_open_layouts" type="object" icon="fa-arrow-right" string="Manage Saved Layouts" class="btn-link mt-2"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

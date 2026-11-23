@@ -1,0 +1,274 @@
+// Part of AXSync List View Manager. See LICENSE file for full copyright and licensing details.
+
+:root {
+    --axs-lvm-accent: #714B67;
+    --axs-lvm-hover-bg: rgba(113, 75, 103, 0.08);
+}
+
+// -----------------------------------------------------------------------------
+// Toolbar
+// -----------------------------------------------------------------------------
+.axs_lvm_toolbar {
+    > .btn {
+        position: relative;
+    }
+    > .btn.active {
+        color: var(--axs-lvm-accent);
+        box-shadow: inset 0 -2px 0 var(--axs-lvm-accent);
+    }
+    .axs_lvm_dot {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--axs-lvm-accent);
+    }
+    .axs_lvm_badge {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        font-size: 0.65rem;
+        background: var(--axs-lvm-accent);
+        color: #fff;
+    }
+}
+
+.axs_lvm_popover {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    left: auto;
+    z-index: 1060;
+    min-width: 220px;
+}
+
+.axs_lvm_manager {
+    width: 340px;
+    max-width: 92vw;
+    max-height: calc(100vh - 130px);
+    display: flex;
+    flex-direction: column;
+    > * {
+        flex-shrink: 0;
+    }
+    .axs_lvm_manager_header {
+        border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+    }
+    > .axs_lvm_column_list {
+        flex: 1 1 auto;
+        min-height: 96px;
+        overflow-y: auto;
+    }
+    .axs_lvm_column_item {
+        min-height: 32px;
+        border-radius: 4px;
+        border: 1px dashed transparent;
+        &:hover {
+            background: var(--axs-lvm-hover-bg);
+            .axs_lvm_item_actions {
+                display: flex !important;
+            }
+        }
+        &.axs_lvm_column_hidden .axs_lvm_column_label {
+            opacity: 0.55;
+        }
+        &.axs_lvm_dragging {
+            opacity: 0.4;
+        }
+        &.axs_lvm_drag_over {
+            border-color: var(--axs-lvm-accent);
+        }
+    }
+    .axs_lvm_handle {
+        cursor: grab;
+        letter-spacing: -3px;
+        width: 10px;
+    }
+    .axs_lvm_column_label {
+        cursor: default;
+        min-width: 0;
+    }
+    .axs_lvm_item_actions {
+        display: none !important;
+        gap: 6px;
+        .btn {
+            line-height: 1;
+        }
+    }
+    .axs_lvm_rename_input {
+        min-width: 0;
+    }
+    .axs_lvm_extra_badge {
+        flex-shrink: 0;
+    }
+    .axs_lvm_add_list {
+        max-height: 180px;
+        overflow-y: auto;
+    }
+    .axs_lvm_density.active {
+        background: var(--axs-lvm-accent);
+        border-color: var(--axs-lvm-accent);
+        color: #fff;
+    }
+}
+
+.axs_lvm_switch .form-check-input:checked {
+    background-color: var(--axs-lvm-accent);
+    border-color: var(--axs-lvm-accent);
+}
+
+.axs_lvm_more_menu {
+    min-width: 290px;
+    .dropdown-item.active,
+    .dropdown-item:active {
+        background-color: transparent;
+        color: inherit;
+        font-weight: 600;
+    }
+    .dropdown-item:hover {
+        background-color: var(--axs-lvm-hover-bg);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// List renderer
+// -----------------------------------------------------------------------------
+.o_list_renderer.axs_lvm {
+    .axs_lvm_serial_th,
+    .axs_lvm_serial_cell {
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+        white-space: nowrap;
+    }
+    .axs_lvm_serial_cell {
+        font-size: 0.85em;
+        vertical-align: middle;
+    }
+
+    // Row hover highlight
+    &.axs_lvm_hover .o_data_row:not(.o_selected_row):hover > td {
+        background-color: var(--axs-lvm-hover-bg) !important;
+        --table-bg-type: var(--axs-lvm-hover-bg);
+        --bs-table-bg-type: var(--axs-lvm-hover-bg);
+    }
+
+    // Density
+    &.axs_lvm_density_compact {
+        .o_data_row > td,
+        thead > tr:first-child > th {
+            padding-top: 0.1rem !important;
+            padding-bottom: 0.1rem !important;
+        }
+        .o_data_row {
+            font-size: 0.92em;
+        }
+    }
+    &.axs_lvm_density_spacious {
+        .o_data_row > td {
+            padding-top: 0.65rem !important;
+            padding-bottom: 0.65rem !important;
+        }
+    }
+
+    // Wrap long text
+    &.axs_lvm_wrap .o_data_row > td.o_data_cell {
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+        .o_field_widget,
+        span {
+            white-space: normal !important;
+        }
+    }
+
+    // Copy cell button
+    td.o_data_cell {
+        position: relative;
+        .axs_lvm_copy {
+            position: absolute;
+            top: 50%;
+            right: 2px;
+            transform: translateY(-50%);
+            display: none;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            line-height: 1.2;
+            color: var(--axs-lvm-accent);
+            background: var(--o-view-background-color, #fff);
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+            cursor: copy;
+            z-index: 2;
+        }
+        &:hover .axs_lvm_copy {
+            display: inline-block;
+        }
+    }
+
+    // Filter row
+    .axs_lvm_filter_row > td {
+        padding: 2px 3px !important;
+        vertical-align: top;
+        background-color: var(--o-view-background-color, transparent);
+        border-bottom-width: 1px;
+    }
+    .axs_lvm_filter_icon {
+        text-align: center;
+        vertical-align: middle !important;
+    }
+    .axs_lvm_filter {
+        min-width: 0;
+        input,
+        select {
+            min-width: 0;
+            width: 100%;
+            font-size: 0.8rem;
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+        .axs_lvm_filter_date {
+            padding-right: 2px;
+        }
+        &.axs_lvm_filter_active {
+            input,
+            select {
+                border-color: var(--axs-lvm-accent);
+                box-shadow: 0 0 0 1px var(--axs-lvm-accent);
+            }
+        }
+        .axs_lvm_filter_clear {
+            color: var(--axs-lvm-accent);
+        }
+    }
+}
+
+// Custom header colors (set in Settings > List View Manager)
+body.axs_lvm_custom_header .o_list_renderer.axs_lvm > .o_list_table > thead > tr:first-child > th {
+    background-color: var(--axs-lvm-header-bg, inherit) !important;
+    color: var(--axs-lvm-header-color, inherit) !important;
+}
+
+@media print {
+    .axs_lvm_copy,
+    .axs_lvm_filter_row,
+    .axs_lvm_toolbar {
+        display: none !important;
+    }
+}
+
+// Odoo 16: the toolbar sits next to the main buttons, open the panels to the right
+.axs_lvm_toolbar_left .axs_lvm_popover {
+    left: 0;
+    right: auto;
+}
+.o_cp_bottom_left:has(.axs_lvm_toolbar_left) {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+// the manager is a flex column so that only the column list scrolls
+.axs_lvm_manager.dropdown-menu.show {
+    display: flex;
+}
