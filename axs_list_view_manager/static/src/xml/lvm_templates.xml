@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Part of AXSync List View Manager. See LICENSE file for full copyright and licensing details. -->
+<templates xml:space="preserve">
+
+    <!-- ================================================================= -->
+    <!-- List controller: toolbar in the control panel                      -->
+    <!-- ================================================================= -->
+    <t t-name="axs_list_view_manager.ListView" t-inherit="web.ListView" t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='control-panel-navigation-additional']" position="inside">
+            <t t-if="axsLvm and !env.isSmall" t-component="axsToolbarComponent" t-props="axsToolbarProps"/>
+        </xpath>
+    </t>
+
+    <!-- ================================================================= -->
+    <!-- List renderer                                                       -->
+    <!-- ================================================================= -->
+    <t t-name="axs_list_view_manager.ListRenderer" t-inherit="web.ListRenderer" t-inherit-mode="extension">
+        <!-- serial number header -->
+        <xpath expr="//thead/tr/t/th[@t-else='']" position="inside">
+            <span t-if="column.type === 'axs_serial'" class="axs_lvm_serial_th">#</span>
+        </xpath>
+        <!-- column filter row -->
+        <xpath expr="//thead/tr" position="after">
+            <tr t-if="axsShowFilterRow" class="axs_lvm_filter_row">
+                <td t-if="hasSelectors" class="axs_lvm_filter_cell axs_lvm_filter_icon">
+                    <i class="fa fa-filter text-muted" title="Column filters"/>
+                </td>
+                <t t-foreach="columns" t-as="column" t-key="column.id">
+                    <t t-set="axsFilter" t-value="axsFilterProps(column)"/>
+                    <td class="axs_lvm_filter_cell" t-att-data-name="column.name">
+                        <t t-if="axsFilter" t-component="axsFilterComponent" t-props="axsFilter"/>
+                    </td>
+                </t>
+                <td t-if="hasOpenFormViewColumn" class="axs_lvm_filter_cell"/>
+                <td t-if="hasActionsColumn" class="axs_lvm_filter_cell"/>
+            </tr>
+        </xpath>
+    </t>
+
+    <t t-name="axs_list_view_manager.ListRenderer.RecordRow" t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="extension">
+        <xpath expr="//t[@t-foreach='getColumns(record)']" position="inside">
+            <td t-if="column.type === 'axs_serial'" class="axs_lvm_serial_cell text-muted" tabindex="-1">
+                <t t-esc="axsSerialNumber(list, record_index)"/>
+            </td>
+        </xpath>
+        <xpath expr="//td[hasclass('o_data_cell')][@t-att-name='column.name']" position="inside">
+            <span t-if="axsCopyEnabled and !isInvisible and !record.isInEdition"
+                  class="axs_lvm_copy"
+                  role="button"
+                  title="Copy value"
+                  t-on-click="axsCopyCell"
+                  t-on-pointerdown.stop=""
+                  t-on-mousedown.stop="">
+                <i class="fa fa-clone"/>
+            </span>
+        </xpath>
+    </t>
+
+    <!-- ================================================================= -->
+    <!-- Toolbar                                                             -->
+    <!-- ================================================================= -->
+    <t t-name="axs_list_view_manager.Toolbar">
+        <div class="axs_lvm_toolbar btn-group position-relative d-print-none" t-ref="root" role="toolbar" aria-label="List View Manager">
+            <button type="button" class="btn btn-secondary axs_lvm_btn_columns"
+                    t-att-class="{active: lvmState.panelOpen}"
+                    t-on-click="togglePanel" title="Columns: show, hide, reorder, rename, add fields"
+                    aria-label="Columns">
+                <i class="fa fa-columns"/>
+                <span t-if="lvmState.userLayout" class="axs_lvm_dot" title="Personal layout active"/>
+            </button>
+            <button t-if="feature('column_filters')" type="button" class="btn btn-secondary axs_lvm_btn_filters"
+                    t-att-class="{active: lvmState.filterRow}"
+                    t-on-click="toggleFilters" title="Column filters" aria-label="Column filters">
+                <i class="fa fa-filter"/>
+                <span t-if="filterCount" class="badge rounded-pill axs_lvm_badge" t-esc="filterCount"/>
+            </button>
+            <button t-if="feature('refresh_button')" type="button" class="btn btn-secondary axs_lvm_btn_reload"
+                    t-on-click="reload" title="Reload data" aria-label="Reload data">
+                <i class="fa fa-refresh" t-att-class="{'fa-spin': state.reloading}"/>
+            </button>
+            <button t-if="hasMoreMenu" type="button" class="btn btn-secondary axs_lvm_btn_more px-2"
+                    t-att-class="{active: state.moreMenu}"
+                    t-on-click="toggleMoreMenu" title="Edit mode, auto refresh and export" aria-label="More list options">
+                <i class="fa fa-ellipsis-v"/>
+                <span t-if="editModeOn or lvmState.autoRefresh" class="axs_lvm_dot" title="Edit mode or auto refresh active"/>
+            </button>
+
+            <div t-if="state.moreMenu" class="axs_lvm_popover axs_lvm_more_menu dropdown-menu show">
+                <t t-if="props.canToggleEdit()">
+                    <button type="button" class="dropdown-item d-flex align-items-center gap-2 axs_lvm_btn_edit"
+                            t-att-class="{active: editModeOn}"
+                            t-on-click="toggleEditMode">
+                        <i class="fa fa-fw" t-att-class="editModeOn ? 'fa-pencil' : 'fa-eye'"/>
+                        <span class="flex-grow-1" t-esc="editModeOn ? 'Edit mode: inline editing on' : 'Read mode: rows open the record'"/>
+                        <span class="badge text-bg-light">Switch</span>
+                    </button>
+                </t>
+                <t t-if="props.canExport()">
+                    <button type="button" class="dropdown-item d-flex align-items-center gap-2 axs_lvm_btn_export" t-on-click="exportView">
+                        <i class="fa fa-fw fa-file-excel-o"/> Export current view (Excel)
+                    </button>
+                </t>
+                <t t-if="feature('auto_refresh')">
+                    <div t-if="props.canToggleEdit() or props.canExport()" role="separator" class="dropdown-divider"/>
+                    <h6 class="dropdown-header">Auto refresh</h6>
+                    <t t-foreach="refreshChoices" t-as="choice" t-key="choice.seconds">
+                        <button type="button" class="dropdown-item d-flex align-items-center gap-2 axs_lvm_refresh_choice"
+                                t-att-class="{active: lvmState.autoRefresh === choice.seconds}"
+                                t-att-data-seconds="choice.seconds"
+                                t-on-click="() => this.setAutoRefresh(choice.seconds)">
+                            <i class="fa fa-fw" t-att-class="lvmState.autoRefresh === choice.seconds ? 'fa-check' : ''"/>
+                            <t t-esc="choice.label"/>
+                        </button>
+                    </t>
+                </t>
+            </div>
+
+            <AxsColumnManager t-if="lvmState.panelOpen" lvm="lvm" close.bind="closePanel"/>
+        </div>
+    </t>
+
+    <!-- ================================================================= -->
+    <!-- Column manager                                                      -->
+    <!-- ================================================================= -->
+    <t t-name="axs_list_view_manager.ColumnManager">
+        <div class="axs_lvm_popover axs_lvm_manager dropdown-menu show p-0" role="dialog" aria-label="Column manager">
+            <div class="axs_lvm_manager_header d-flex align-items-center gap-2 px-3 py-2">
+                <i class="fa fa-columns"/>
+                <span class="fw-bold flex-grow-1">Columns</span>
+                <span class="badge rounded-pill text-bg-light" t-esc="visibleCount + ' / ' + state.columns.length"/>
+                <button type="button" class="btn btn-link p-0 axs_lvm_close" t-on-click="() => props.close()" aria-label="Close">
+                    <i class="fa fa-times"/>
+                </button>
+            </div>
+            <div class="px-3 pt-2">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text"><i class="fa fa-search"/></span>
+                    <input type="search" class="form-control axs_lvm_column_search" placeholder="Search columns…"
+                           t-model="state.search"/>
+                </div>
+                <div class="d-flex justify-content-between small mt-1">
+                    <a href="#" class="axs_lvm_show_all" t-on-click.prevent="() => this.showAll(true)">Show all</a>
+                    <a href="#" class="axs_lvm_hide_all" t-on-click.prevent="() => this.showAll(false)">Hide all</a>
+                </div>
+            </div>
+            <ul class="axs_lvm_column_list list-unstyled mb-0 px-2 py-1">
+                <li t-if="!filteredColumns.length" class="text-muted small text-center py-3">No column matches your search.</li>
+                <t t-foreach="filteredColumns" t-as="col" t-key="col.key">
+                    <li class="axs_lvm_column_item d-flex align-items-center gap-2 px-1"
+                        t-att-class="{'axs_lvm_dragging': state.dragKey === col.key, 'axs_lvm_drag_over': state.overKey === col.key and state.dragKey !== col.key, 'axs_lvm_column_hidden': !col.visible}"
+                        t-att-data-key="col.key"
+                        draggable="true"
+                        t-on-dragstart="(ev) => this.onDragStart(col, ev)"
+                        t-on-dragover="(ev) => this.onDragOver(col, ev)"
+                        t-on-drop="(ev) => this.onDrop(col, ev)"
+                        t-on-dragend="onDragEnd">
+                        <span class="axs_lvm_handle text-muted" title="Drag to reorder"><i class="fa fa-ellipsis-v"/><i class="fa fa-ellipsis-v"/></span>
+                        <div class="form-check form-switch m-0 axs_lvm_switch">
+                            <input class="form-check-input" type="checkbox" role="switch"
+                                   t-att-checked="col.visible" t-on-change="() => this.toggleVisible(col)"
+                                   t-att-aria-label="'Show ' + displayLabel(col)"/>
+                        </div>
+                        <i class="fa fa-fw text-muted small" t-att-class="columnIcon(col)"/>
+                        <t t-if="state.editingKey === col.key">
+                            <input type="text" class="form-control form-control-sm axs_lvm_rename_input flex-grow-1"
+                                   t-att-value="col.label || col.defaultLabel"
+                                   t-att-placeholder="col.defaultLabel"
+                                   t-on-input="(ev) => this.onRenameInput(col, ev)"
+                                   t-on-keydown="(ev) => this.onRenameKeydown(col, ev)"
+                                   t-on-blur="stopRename"
+                                   t-ref="autofocus"/>
+                        </t>
+                        <t t-else="">
+                            <span class="axs_lvm_column_label flex-grow-1 text-truncate"
+                                  t-att-title="col.label ? col.defaultLabel + ' (renamed)' : col.name"
+                                  t-on-dblclick="() => this.startRename(col)">
+                                <t t-esc="displayLabel(col)"/>
+                                <small t-if="col.label" class="text-muted fst-italic"> (<t t-esc="col.defaultLabel"/>)</small>
+                            </span>
+                            <span t-if="col.extra" class="badge text-bg-info axs_lvm_extra_badge">added</span>
+                        </t>
+                        <span class="axs_lvm_item_actions d-flex align-items-center">
+                            <button t-if="col.type === 'field'" type="button" class="btn btn-link btn-sm p-0 axs_lvm_rename" title="Rename" t-on-click="() => this.startRename(col)"><i class="fa fa-pencil"/></button>
+                            <button t-if="col.label" type="button" class="btn btn-link btn-sm p-0 axs_lvm_reset_label" title="Restore original label" t-on-click="() => this.resetLabel(col)"><i class="fa fa-undo"/></button>
+                            <button type="button" class="btn btn-link btn-sm p-0" title="Move up" t-on-click="() => this.moveBy(col, -1)"><i class="fa fa-angle-up"/></button>
+                            <button type="button" class="btn btn-link btn-sm p-0" title="Move down" t-on-click="() => this.moveBy(col, 1)"><i class="fa fa-angle-down"/></button>
+                            <button t-if="col.extra" type="button" class="btn btn-link btn-sm p-0 text-danger axs_lvm_remove_extra" title="Remove this added field" t-on-click="() => this.removeExtraField(col)"><i class="fa fa-trash-o"/></button>
+                        </span>
+                    </li>
+                </t>
+            </ul>
+
+            <div t-if="canAddFields" class="axs_lvm_add_field border-top px-3 py-2">
+                <button type="button" class="btn btn-link btn-sm p-0 axs_lvm_add_toggle" t-on-click="toggleAdd">
+                    <i class="fa" t-att-class="state.addOpen ? 'fa-caret-down' : 'fa-plus-circle'"/> Add a field
+                </button>
+                <div t-if="state.addOpen" class="mt-2">
+                    <input type="search" class="form-control form-control-sm axs_lvm_add_search" placeholder="Find a field…" t-model="state.addSearch"/>
+                    <div t-if="!state.addable" class="text-muted small py-2"><i class="fa fa-circle-o-notch fa-spin"/> Loading fields…</div>
+                    <ul t-else="" class="list-unstyled axs_lvm_add_list mb-0 mt-1">
+                        <li t-if="!addableFields.length" class="text-muted small py-1">No other field available.</li>
+                        <t t-foreach="addableFields" t-as="field" t-key="field.name">
+                            <li>
+                                <button type="button" class="dropdown-item small d-flex justify-content-between axs_lvm_add_item"
+                                        t-att-disabled="state.busy" t-att-data-field="field.name" t-on-click="() => this.addField(field)">
+                                    <span t-esc="field.string"/>
+                                    <span class="text-muted" t-esc="field.type"/>
+                                </button>
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="axs_lvm_display border-top px-3 py-2">
+                <div class="small text-muted mb-1">Row density</div>
+                <div class="btn-group btn-group-sm w-100" role="group">
+                    <t t-foreach="densities" t-as="d" t-key="d.value">
+                        <button type="button" class="btn btn-outline-secondary axs_lvm_density"
+                                t-att-class="{active: density === d.value}" t-att-data-density="d.value"
+                                t-on-click="() => this.setDensity(d.value)" t-esc="d.label"/>
+                    </t>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-2">
+                    <div class="form-check form-switch m-0 axs_lvm_switch">
+                        <input class="form-check-input axs_lvm_wrap_toggle" type="checkbox" role="switch" id="axs_lvm_wrap"
+                               t-att-checked="wrapText" t-on-change="toggleWrap"/>
+                        <label class="form-check-label small" for="axs_lvm_wrap">Wrap long text</label>
+                    </div>
+                    <a href="#" class="small axs_lvm_reset_widths" t-on-click.prevent="resetWidths">Reset widths</a>
+                </div>
+            </div>
+
+            <div class="axs_lvm_manager_footer border-top px-3 py-2 d-flex flex-wrap gap-2 align-items-center">
+                <button type="button" class="btn btn-sm btn-secondary axs_lvm_restore" t-on-click="restoreDefault"
+                        t-att-disabled="!hasPersonalLayout" title="Forget your personal layout">
+                    <i class="fa fa-undo"/> Restore default
+                </button>
+                <t t-if="lvm.isManager">
+                    <button type="button" class="btn btn-sm btn-outline-primary axs_lvm_publish" t-on-click="publishTeam"
+                            title="Use this layout as the default for every user">
+                        <i class="fa fa-users"/> Set as team default
+                    </button>
+                    <button t-if="hasTeamLayout" type="button" class="btn btn-sm btn-link text-danger p-0 axs_lvm_unpublish"
+                            t-on-click="removeTeam">Remove team default</button>
+                </t>
+                <span t-if="!hasPersonalLayout and hasTeamLayout" class="small text-muted w-100"><i class="fa fa-users"/> Team default layout in use</span>
+                <span t-elif="hasPersonalLayout" class="small text-muted w-100"><i class="fa fa-user"/> Your personal layout is saved automatically</span>
+            </div>
+        </div>
+    </t>
+
+    <!-- ================================================================= -->
+    <!-- Column filter cell                                                  -->
+    <!-- ================================================================= -->
+    <t t-name="axs_list_view_manager.ColumnFilter">
+        <div class="axs_lvm_filter d-flex align-items-center" t-att-class="{'axs_lvm_filter_active': value !== undefined}" t-on-click.stop="" t-on-keydown.stop="">
+            <t t-if="props.kind === 'text' or props.kind === 'number'">
+                <input type="text" size="1" class="form-control form-control-sm axs_lvm_filter_input"
+                       t-att-value="textValue" t-att-placeholder="placeholder"
+                       t-att-aria-label="'Filter ' + props.label"
+                       t-on-keydown="onTextKeydown" t-on-change="onTextChange"/>
+            </t>
+            <t t-elif="props.kind === 'date'">
+                <div class="d-flex flex-column w-100 gap-1">
+                    <input type="date" class="form-control form-control-sm axs_lvm_filter_date axs_lvm_filter_from" title="From"
+                           t-att-value="dateValue.from || ''" t-on-change="(ev) => this.onDateChange('from', ev)"/>
+                    <input type="date" class="form-control form-control-sm axs_lvm_filter_date axs_lvm_filter_to" title="To"
+                           t-att-value="dateValue.to || ''" t-on-change="(ev) => this.onDateChange('to', ev)"/>
+                </div>
+            </t>
+            <t t-elif="props.kind === 'selection'">
+                <select class="form-select form-select-sm axs_lvm_filter_select" t-on-change="onSelectChange" t-att-aria-label="'Filter ' + props.label">
+                    <option value="" t-att-selected="value === undefined">All</option>
+                    <t t-foreach="selectionOptions" t-as="opt" t-key="opt_index">
+                        <option t-att-value="opt[0]" t-att-selected="isSelected(opt[0])" t-esc="opt[1]"/>
+                    </t>
+                    <option value="__unset__" t-att-selected="value === '__unset__'">Not set</option>
+                </select>
+            </t>
+            <t t-elif="props.kind === 'boolean'">
+                <select class="form-select form-select-sm axs_lvm_filter_select" t-on-change="onSelectChange" t-att-aria-label="'Filter ' + props.label">
+                    <option value="" t-att-selected="value === undefined">All</option>
+                    <option value="true" t-att-selected="value === 'true'">Yes</option>
+                    <option value="false" t-att-selected="value === 'false'">No</option>
+                </select>
+            </t>
+            <button t-if="value !== undefined" type="button" class="btn btn-link btn-sm p-0 ms-1 axs_lvm_filter_clear" title="Clear filter" t-on-click="clear">
+                <i class="fa fa-times-circle"/>
+            </button>
+        </div>
+    </t>
+</templates>
