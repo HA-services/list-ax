@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_axs_lvm" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.axs.list.view.manager</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="List View Manager" string="List View Manager" name="axs_list_view_manager" logo="/axs_list_view_manager/static/description/icon.png" groups="axs_list_view_manager.group_lvm_manager">
+                    <block title="List Features" name="axs_lvm_features">
+                        <setting id="axs_lvm_serial_number" string="Serial Number Column" help="Show a running row number (#) at the start of every list.">
+                            <field name="axs_lvm_serial_number"/>
+                        </setting>
+                        <setting id="axs_lvm_hover_highlight" string="Highlight Row on Hover" help="Highlight the row under the mouse pointer for easier reading.">
+                            <field name="axs_lvm_hover_highlight"/>
+                        </setting>
+                        <setting id="axs_lvm_column_filters" string="Column Filters" help="Search row under the list header: text, related records, numbers, date ranges, selections and Yes/No values. Works together with Group By.">
+                            <field name="axs_lvm_column_filters"/>
+                        </setting>
+                        <setting id="axs_lvm_copy_cell" string="Copy Cell Value" help="Copy the value of any cell with one click, without opening the record.">
+                            <field name="axs_lvm_copy_cell"/>
+                        </setting>
+                        <setting id="axs_lvm_edit_toggle" string="Read / Edit Mode Toggle" help="Let users switch inline editing on or off on lists of records they are allowed to edit.">
+                            <field name="axs_lvm_edit_toggle"/>
+                        </setting>
+                        <setting id="axs_lvm_refresh_button" string="Reload Button" help="Reload list data without refreshing the browser page.">
+                            <field name="axs_lvm_refresh_button"/>
+                        </setting>
+                        <setting id="axs_lvm_auto_refresh" string="Auto Refresh" help="Let users reload a list automatically every 30 seconds, 1, 5 or 15 minutes.">
+                            <field name="axs_lvm_auto_refresh"/>
+                        </setting>
+                        <setting id="axs_lvm_export_view" string="Export Current View" help="Export exactly what is on screen (visible columns, custom labels, filters and grouping) to Excel. Requires the export right.">
+                            <field name="axs_lvm_export_view"/>
+                        </setting>
+                        <setting id="axs_lvm_copy_rows" string="Copy Rows to Clipboard" help="Copy the selected rows as a table that pastes cleanly into Excel or Google Sheets.">
+                            <field name="axs_lvm_copy_rows"/>
+                        </setting>
+                        <setting id="axs_lvm_extra_fields" string="Add Any Field as Column" help="Let users add fields that are not in the list view as extra read-only columns.">
+                            <field name="axs_lvm_extra_fields"/>
+                        </setting>
+                    </block>
+                    <block title="Colors" name="axs_lvm_colors">
+                        <setting id="axs_lvm_header_colors" string="List Header" help="Background and text color of list headers. Leave empty to keep the Odoo theme colors.">
+                            <div class="d-flex gap-4 mt-2 align-items-center">
+                                <span class="o_form_label">Background</span>
+                                <field name="axs_lvm_header_bg" widget="color" class="w-auto"/>
+                                <span class="o_form_label">Text</span>
+                                <field name="axs_lvm_header_color" widget="color" class="w-auto"/>
+                            </div>
+                        </setting>
+                        <setting id="axs_lvm_other_colors" string="Hover and Toggle Colors" help="Row highlight color and the color of switches and accents in the column manager.">
+                            <div class="d-flex gap-4 mt-2 align-items-center">
+                                <span class="o_form_label">Row hover</span>
+                                <field name="axs_lvm_hover_color" widget="color" class="w-auto"/>
+                                <span class="o_form_label">Toggles</span>
+                                <field name="axs_lvm_accent_color" widget="color" class="w-auto"/>
+                            </div>
+                        </setting>
+                    </block>
+                    <block title="Administration" name="axs_lvm_admin">
+                        <setting id="axs_lvm_excluded_models" string="Disabled on Models" help="Switch List View Manager off on specific models. Their lists behave exactly like standard Odoo lists.">
+                            <field name="axs_lvm_excluded_model_ids" widget="many2many_tags" options="{'no_create': True}" class="w-100"/>
+                        </setting>
+                        <setting id="axs_lvm_layouts" string="Saved Layouts" help="Review, edit or delete the personal and team layouts saved by users.">
+                            <button name="action_axs_lvm_open_layouts" type="object" icon="oi-arrow-right" string="Manage Saved Layouts" class="btn-link"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

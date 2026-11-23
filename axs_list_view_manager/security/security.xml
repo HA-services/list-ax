@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_lvm_manager" model="res.groups">
+        <field name="name">List View Manager Administrator</field>
+        <field name="comment">Can configure AXSync List View Manager, publish team default layouts and manage every saved layout.</field>
+    </record>
+
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('axs_list_view_manager.group_lvm_manager'))]"/>
+    </record>
+
+    <record id="rule_lvm_layout_read" model="ir.rule">
+        <field name="name">List layouts: read own and team layouts</field>
+        <field name="model_id" ref="model_axs_lvm_layout"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">['|', ('user_id', '=', user.id), ('user_id', '=', False)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_lvm_layout_own" model="ir.rule">
+        <field name="name">List layouts: modify own layouts</field>
+        <field name="model_id" ref="model_axs_lvm_layout"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_lvm_layout_manager" model="ir.rule">
+        <field name="name">List layouts: administrators manage all layouts</field>
+        <field name="model_id" ref="model_axs_lvm_layout"/>
+        <field name="groups" eval="[(4, ref('axs_list_view_manager.group_lvm_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+</odoo>
